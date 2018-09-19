@@ -27,9 +27,11 @@ Front-end
   * React
   * Redux
   * Context API
-  * AJAX
+  * Glamorous / Styled Components
+  * AJAX -- Axios
   * Preprocessors 
-  * Three.js - WebGL
+  * Media Queries
+  * WebGL -- Three.js
 
 Back-end
   * Node
@@ -37,21 +39,24 @@ Back-end
   * Mongoose
   * Passport
   * Express
+  * Algolia
   * Django
   * 0Auth
   * JWT
 
 Deployment
-  * Firebase
-  * Firestore
+  * Firebase, Firestore
   * Heroku
   * Netlify
   * MLab
-  * Algolia
 
 Industry Knowledge
-  * Data Structures
-  * Big-O
   * Git
-  * Computer Architecture
+  * RESTful API
+  * Big-O
+  * Data Structures
   * Unit Testing
+  * Computer Architecture
+
+Preferred Setup
+  * VS Code + Hyper Terminal
