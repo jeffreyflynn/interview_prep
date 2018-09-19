@@ -66,17 +66,14 @@ Current Setup
 # EXPERIENCE
 
 Full Stack Developer at Lambda School (Feb. 2018 - Present)
+
+  * Lambda School is a 6 month Computer Science & Software Engineering Academy that provides an immersive hands-on curriculum with a focus on computer science, software engineering, and web development.
+
   * Participated in a 6-month, fully immersive, computer science program.
 
   * I spent 45-65 hours per week - for the past 6+ months - learning as much as I could about software engineering through Lambda School's hands-on curriculum and personal exploration.
   * practiced agile software development through git workflow, pair-programming, and peer-code-reviews.
   * everything listed under `skills` was learned as a student at LS
-
-
-Independent Investor (2014 - 2017)
-  * Self-taught trader; proficient in multi-timeframe technical analysis and risk management 
-  * Primarily focused on the Foreign Exchange market
-  * Familiar with small-scale trade lifecycle components 
 
 
 
