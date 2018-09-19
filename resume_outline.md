@@ -11,3 +11,47 @@
   * Node, Express, Passport, React, Redux
   * Individual project
   * https://lambdanotes-jeffreyflynn.netlify.com/ 
+
+
+
+
+# SKILLS
+
+Languages
+  * JavaScript
+  * Python
+  * C
+  * Go
+
+Front-end
+  * React
+  * Redux
+  * Context API
+  * AJAX
+  * Preprocessors 
+  * Three.js - WebGL
+
+Back-end
+  * Node
+  * MongoDB
+  * Mongoose
+  * Passport
+  * Express
+  * Django
+  * 0Auth
+  * JWT
+
+Deployment
+  * Firebase
+  * Firestore
+  * Heroku
+  * Netlify
+  * MLab
+  * Algolia
+
+Industry Knowledge
+  * Data Structures
+  * Big-O
+  * Git
+  * Computer Architecture
+  * Unit Testing
