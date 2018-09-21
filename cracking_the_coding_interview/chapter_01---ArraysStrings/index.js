@@ -1,7 +1,5 @@
-/* 
-Implement an algorithm to determine if a string has all unique characters.
-What if you cannot use additional data structures? 
-*/
+/* Implement an algorithm to determine if a string has all unique characters.
+   What if you cannot use additional data structures? */
 
 const is_unique = str => {
   const hashed = {};
@@ -15,38 +13,32 @@ const is_unique = str => {
 }
 
 
-/* FIREBASE IS A COMPREHENSIVE DEVELOPMENT PLATFORM
+/* Given two strings, write a method to decide if one is a permutation of the other. */
 
+const is_permutation = (x_str, y_str) => {
+  const x_hash = {};
+  const y_hash = {};
 
+  if (x_str.length !== y_str.length) return false;
 
+  for (let i = 0; i < x_str.length; i++) {
+    if (x_hash[x_str[i]]) x_hash[x_str[i]] += 1;
+    else x_hash[x_str[i]] = 1;
+  }
 
-What did you contribute to this project?
+  for (let i = 0; i < y_str.length; i++) {
+    if (y_hash[y_str[i]]) y_hash[y_str[i]] += 1;
+    else y_hash[y_str[i]] = 1;
+  }
 
-  I was heavily involved in establishing the server-to-client side connections
+  for (let key in x_hash) {
+    if (!y_hash[key] || y_hash[key] !== x_hash[key]) return false;
+  }
 
-    * all the real-time updates
-    * custom search engine
+  return true;
+}
 
+const sample0 = "ABC"
+const sample1 = "BCA"
 
-
-
-What was the hardest part of this project?
-
-  Technically speaking, Firebase, specifically Firestore.
-
-    ...which is one of two database options offered by Firebase.
-
-    ...we chose this over the Real Time Database because
-      * it offers more structured data with documents and collections as opposed to on massive JSON tree
-      * provides greater speed and scalability than the Real Time Database
-    
-    ...the primary reason it was the most difficult aspect of this project is because 
-      * I had zero prior experience with Firebase
-      * and quite frankly, there's a ton of documentation to read and understand
-    
-    ...I overcame this obsticle with HARD WORK and DETERMINATION
-
-
-
-
-*/
+// console.log(`\n\n${sample0} is a permutation of ${sample1} --- ${is_permutation(sample0, sample1)}\n\n`)
