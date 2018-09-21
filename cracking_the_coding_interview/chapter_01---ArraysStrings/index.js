@@ -14,6 +14,7 @@ const is_unique = str => {
 
 
 /* Given two strings, write a method to decide if one is a permutation of the other. */
+/* O(idk) */
 
 const is_permutation = (x_str, y_str) => {
   const x_hash = {};
@@ -38,7 +39,29 @@ const is_permutation = (x_str, y_str) => {
   return true;
 }
 
-const sample0 = "ABC"
-const sample1 = "BCA"
-
+// const sample0 = "ABC"
+// const sample1 = "BCA"
 // console.log(`\n\n${sample0} is a permutation of ${sample1} --- ${is_permutation(sample0, sample1)}\n\n`)
+
+
+
+/*
+Write a method to replace all spaces in a string with "%20".
+
+You may assume that the string has sufficient space at the end to hold additional characters, 
+  and that you are given the "true" length of the string.
+
+O(n)
+*/
+
+const URLify = str => {
+  return [...str].reduce((acc, cur) => {
+    if (cur === " ") acc += "%20";
+    else acc += cur;
+    return acc;
+  }, "");
+}
+
+// const sample = "jeffrey flynn is awesome";
+
+// console.log("result: ", URLify(sample));
