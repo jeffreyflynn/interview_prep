@@ -122,6 +122,19 @@ class DoublyLinkedList {
 
     return rewind(this.tail.previous)
   }
+
+
+  find_node = data => {
+    if (!this.head) return null;
+
+    const recurse = current_node => {
+      if (current_node.data === data) return current_node;
+      if (!current_node.next) return null;
+      return recurse(current_node.next);
+    }
+
+    return recurse(this.head);
+  }
 }
 
 /*******************************************************************/
