@@ -39,10 +39,11 @@ class LinkedList {
     this.tail = node;
   }
 
+
   delete_head = () => {
     if (!this.head) return null;
 
-    const old_head = this.head.value;
+    const old_head = this.head.data;
 
     this.head = this.head.next;
     if (this.head) this.head.previous = null;
@@ -50,6 +51,20 @@ class LinkedList {
 
     return old_head;
   }
+
+
+  delete_tail = () => {
+    if (!this.tail) return null;
+
+    const old_tail = this.tail.data;
+
+    this.tail = this.tail.previous;
+    if (this.tail) this.tail.next = null;
+    else this.head = null;
+
+    return old_tail;
+  }
+
 
   // Write code to remove duplicates from an unsorted linked list.
 }
