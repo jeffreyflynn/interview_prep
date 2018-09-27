@@ -8,16 +8,27 @@
 
 class Stack {
   constructor() {
-    this.stack = [];
+    this.stack = {};
+    this.size = 0;
+    // this.min = null;
   }
 
-  pop = () => this.stack.pop();
+  pop = () => {
+    if (this.size === 0) return null;
+    delete this.stack[this.size];
+    this.size--;
+  }
 
-  push = data => this.stack.push(data);
+  push = data => {
+    this.stack[this.size] = data;
+    this.size++;
+  }
 
-  peek = () => this.is_empty() ? null : this.stack[this.stack.length - 1];
+  peek = () => this.is_empty() ? null : this.stack[this.size];
 
-  is_empty = () => this.stack.length === 0 ? true : false;
+  is_empty = () => this.size === 0;
+
+  // min = () => this.min;
 }
 
 
