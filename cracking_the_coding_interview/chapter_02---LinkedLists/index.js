@@ -17,7 +17,28 @@ class Node {
 }
 
 
-class LinkedList {
+class SingleLinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+  }
+
+  // Write an algorithm to find the kth to last element of a singly linked list.
+  kth_to_last = k => {
+    if (!this.head) return null;
+
+    const recurse = (current_node, count = 1) => {
+      if (count === k) return current_node.data;
+      else if (!current_node.next) return null;
+      else return rewind(current_node.next, count++);
+    }
+
+    return recurse(this.head);
+  }
+}
+
+
+class DoublyLinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -86,6 +107,20 @@ class LinkedList {
     }
 
     return recurse(this.head);
+  }
+
+
+  // Write an algorithm to find the kth to last element of a singly linked list.
+  kth_to_last = k => {
+    if (!this.head || !this.tail) return null;
+
+    const rewind = (current_node, count = 1) => {
+      if (count === k) return current_node.data;
+      else if (!current_node.previous) return null;
+      else return rewind(current_node.previous, count++);
+    }
+
+    return rewind(this.tail.previous)
   }
 }
 
