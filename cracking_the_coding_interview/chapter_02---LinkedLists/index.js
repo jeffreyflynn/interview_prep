@@ -68,17 +68,20 @@ class LinkedList {
 
   // Write code to remove duplicates from an unsorted linked list.
   remove_duplicates = () => {
-    if (!this.head) return null;
+    if (!this.head || !this.tail) return null;
 
     const cache = {};
 
     const recurse = (current_node) => {
-      if (!current_node.next) return;
       if (!cache[current_node.data]) cache[current_node.data] = true;
-      else {
+      else if (!current_node.next) {
+          this.tail = current_node.previous;
+          this.tail.next = null;
+      } else {
         current_node.previous.next = current_node.next;
         current_node.next.previous = current_node.previous;
       }
+      if (!current_node.next) return;
       return recurse(current_node.next);
     }
 
