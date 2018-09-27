@@ -5,6 +5,8 @@
     * insertion
     * deletion
 
+  Circular linked list:
+    A -> B -> C -> D -> E -> C
 */
 
 
