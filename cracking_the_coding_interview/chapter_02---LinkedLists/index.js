@@ -7,10 +7,30 @@
 
 */
 
+
+class Node {
+  constructor(data, previous, next) {
+    this.data = data;
+    this.previous = previous;
+    this.next = next;
+  }
+}
+
+
 class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
+  }
+
+  add_to_head = data => {
+    const node = new Node(data, null, this.head);
+    if (!this.head) {
+      this.tail = node;
+    } else {
+      this.head.prev = node;
+    }
+    this.head = node;
   }
 
   add_to_tail = data => {
@@ -31,15 +51,11 @@ class LinkedList {
     }
   }
 
-  // Write code to remove duplicates from an unsorted linked list.
-}
+  delete_node = node => {
 
-class Node {
-  constructor(data, previous, next) {
-    this.data = data;
-    this.previous = previous;
-    this.next = next;
   }
+
+  // Write code to remove duplicates from an unsorted linked list.
 }
 
 /*******************************************************************/
