@@ -135,6 +135,22 @@ class DoublyLinkedList {
 
     return recurse(this.head);
   }
+
+
+  // Write a method to check if a linked list is a palindrome.
+  is_palindrome = () => {
+    const result = "";
+
+    const recurse = current_node => {
+      result += current_node.data;
+      if (!current_node.next) return result;
+      return recurse(current_node.next);
+    }
+
+    if (!this.head) return false;
+    else if (recurse(this.head) === [...result].reverse().join("")) return true;
+    else return false;
+  }
 }
 
 /*******************************************************************/
