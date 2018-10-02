@@ -1,4 +1,5 @@
 // implement a stack using two queues
+// https://stackoverflow.com/questions/688276/implement-stack-using-two-queues
 
 
 class Queue {
