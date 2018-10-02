@@ -1,4 +1,5 @@
 // stack is a linear data structure that follows LIFO (last in, first out)
+// stacks are ideal when retrieval order does not matter
 // picture a stack of dinner plates
 // push, pop, peek, isEmpty
 
