@@ -50,19 +50,80 @@ Max
 */
 
 
-// Given a directed graph, design an algorithm to find out whether there is a route between two nodes.
-// directed graph i.e. each node can only point to one other node
 
-// example: A -> B -> C -> A
+/* GRAPHS
 
-class DirectedGraph {
+  * A graph is a collection of nodes with edges between them.
+  * Types of graphs: DIRECTED (one-way street) and UNDIRECTED (two-way stree)
+  * If there is a path between every pair of verticies, it is called a CONNECTED graph.
+  * A graph can also have cycles. ACYCLIC Graph === graph without cycles.
+
+  node === vertex
+  connection === edge
+
+*/
+
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.connections = [];
+  }
+
+  addConnection(dest) {
+    this.connections.push(dest);
+  }
+}
+
+class Graph {
   constructor() {
     this.graph = {};
   }
 
-  add_node = (name, neighbor) => {
-    this.graph[name] = neighbor;
+  addVertex(value) {
+    const vertex = new Node(value);
+    this.graph[value] = vertex;
+    return this.graph[value];
   }
 
-  route_exists = (node_a, node_b) => {}
+  addEdge(src, destination) {
+    this.graph[src].addConnection(destination);
+    this.graph[destination].addConnection(src);
+    return this.graph;
+  }
+
+  printGraph() {
+    console.log(this.graph);
+  }
 }
+
+
+/*************************************************************/
+
+const g = new Graph(); 
+const vertices = [ 'A', 'B', 'C', 'D', 'E', 'F' ]; 
+  
+// adding vertices 
+for (let i = 0; i < vertices.length; i++) { 
+    g.addVertex(vertices[i]); 
+} 
+  
+// adding edges 
+g.addEdge('A', 'B'); 
+g.addEdge('A', 'D'); 
+g.addEdge('A', 'E'); 
+g.addEdge('B', 'C'); 
+g.addEdge('D', 'E'); 
+g.addEdge('E', 'F'); 
+g.addEdge('E', 'C'); 
+g.addEdge('C', 'F'); 
+  
+// prints all vertex and 
+// its adjacency list 
+// A -> B D E 
+// B -> A C 
+// C -> B E F 
+// D -> A E 
+// E -> A D F C 
+// F -> E C 
+g.printGraph(); 
