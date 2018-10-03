@@ -18,8 +18,7 @@ Types of Binary Trees:
 */
 
 
-/*
-Binary Tree Traversal
+/* Binary Tree Traversal
 
 IN-ORDER
   * visits the left branch, then the current node, then the right branch
@@ -32,8 +31,21 @@ POST-ORDER
   * visit the current node after its child nodes have been visited
   * the root node is always the last node visited 
 
+*** to traverse a tree without recursion, use a stack ***/
 
-** to traverse a tree without recursion, use a stack **
+
+/* Min Heaps and Max Heaps
+
+Min
+  * a complete binary tree where each node is smaller than its children 
+  * the root node is therefore the minimum element
+  * key operations: INSERT and EXTRACT_MIN
+
+Max
+  * a complete binary tree where each node is greater than its children
+  * the root node is therefore the maximum element
+  * the root node is therefore the minimum element
+  * key operations: INSERT and EXTRACT_MAX
 
 */
 
