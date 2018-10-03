@@ -8,3 +8,6 @@ Given two eggs, find the highest floor an egg can be dropped from without breaki
 */
 
 
+// drop it from 50
+// if it breaks, one egg remains, start from 1 and increment by 1
+// if it doesn't break, two eggs remain, start from 51 and increment by 2
