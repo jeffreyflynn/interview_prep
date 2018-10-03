@@ -20,6 +20,21 @@ Types of Binary Trees:
 
 /*
 Binary Tree Traversal
+
+IN-ORDER
+  * visits the left branch, then the current node, then the right branch
+
+PRE-ORDER
+  * visit the current node before its child nodes have been visited 
+  * the root node is always the first node visited
+
+POST-ORDER
+  * visit the current node after its child nodes have been visited
+  * the root node is always the last node visited 
+
+
+** to traverse a tree without recursion, use a stack **
+
 */
 
 
