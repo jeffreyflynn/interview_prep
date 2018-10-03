@@ -1,3 +1,28 @@
+/*
+A Tree is a data structure composed of nodes.
+  * each tree has a root node 
+  * a root node has 0+ child nodes
+  * each child node has 0+ child nodes
+
+A BINARY TREE is a tree in which each node has up to two child nodes.
+
+A BINARY SEARCH TREE is a tree in which each node follows a specific order.
+  * all left decendents are less than the current node
+  * all right decendents are greater than the current node
+  * duplicate node values are often restricted (clarify with interviewer)
+
+Types of Binary Trees: 
+  * Complete --- every level of the tree is filled (except for perhaps the last node (furthest right) on the bottom level)
+  * Full --- every node has either 0 or 2 children (no node can have only one child)
+  * Perfect --- a tree that is both full and complete
+*/
+
+
+/*
+Binary Tree Traversal
+*/
+
+
 // Given a directed graph, design an algorithm to find out whether there is a route between two nodes.
 // directed graph i.e. each node can only point to one other node
 
