@@ -39,4 +39,19 @@ class SinglyLinkedList {
       this.head = newnode;
     }
   }
+
+  removeHead() {
+    if (!this.head) return null;
+
+    if (!this.head.next) {
+      delete this.head;
+      return;
+    }
+
+    const newhead = this.head.next;
+    delete this.head;
+    this.head = newhead;
+    
+    return this.head;
+  }
 }
