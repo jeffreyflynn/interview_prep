@@ -58,6 +58,8 @@ class SinglyLinkedList {
 
   // if you move one pointer twice as fast as another pointer,
   // the fast pointer should eventually catch up to the slow pointer
+  // if the fast pointer .next is null, the linked list has ended, thus there is no loop
+  // if the fast pointer = the slow pointer, then a loop has been established
   checkForLoop() {
     let slow_pointer = this.head;
     let fast_pointer = this.head;
@@ -70,6 +72,20 @@ class SinglyLinkedList {
     }
 
     return false;
+  }
+
+  getLength() {
+    if (!this.head) return 0;
+
+    let current = this.head;
+    let count = 1;
+
+    while (current.next) {
+      current = current.next;
+      count++;
+    }
+
+    return count;
   }
 }
 
