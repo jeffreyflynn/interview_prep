@@ -12,7 +12,7 @@ class BinarySearchTree {
     this.root = null;
   }
 
-  push_iterative(value) {
+  insert_iterative(value) {
     const newnode = new Node(value);
 
     if (!this.root) {
@@ -40,7 +40,7 @@ class BinarySearchTree {
     }
   }
 
-  push_recursive(value) {
+  insert_recursive(value) {
     const newnode = new Node(value);
 
     if (!this.root) {
@@ -61,5 +61,32 @@ class BinarySearchTree {
     }
 
     return recurse(this.root);
+  }
+
+  // visits the left branch, then the current node, then the right branch
+  traverse_inOrder(node=this.root) {
+    if (node) {
+      this.traverse_inOrder(node.left);
+      console.log(node.value);
+      this.traverse_inOrder(node.right);
+    }
+  }
+
+  // visit the current node before its child nodes have been visited 
+  traverse_preOrder(node=this.root) {
+    if (node) {
+      console.log(node.value);
+      this.traverse_preOrder(node.left);
+      this.traverse_preOrder(node.right);
+    }
+  }
+
+  // visit the current node after its child nodes have been visited
+  traverse_postOrder(node=this.root) {
+    if (node) {
+      this.traverse_postOrder(node.left);
+      this.traverse_postOrder(node.right);
+      console.log(node.value);
+    }
   }
 }
