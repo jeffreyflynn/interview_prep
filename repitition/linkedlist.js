@@ -94,4 +94,25 @@ class DoublyLinkedList {
       this.head = newnode;
     }
   }
+
+  removeAnyNode(value) {
+    if (this.head.value === value) {
+      this.head = this.head.next;
+      this.head.prev = null;
+    }
+
+    else {
+      let current = this.head;
+
+      while (current.next && current.value !== value) {
+        current = current.next;
+      }
+
+      if (current.value === value) {
+        current.prev.next = current.next.prev;
+      } else {
+        console.log(`There is no element with the value: ${value}`);
+      }
+    }
+  }
 }
