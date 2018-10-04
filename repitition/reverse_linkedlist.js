@@ -55,6 +55,29 @@ class SinglyLinkedList {
     
     return this.head;
   }
+
+  // Write an algorithm to find the kth to last element of a singly linked list.
+  kth_node_iterative(k) {
+    if (!this.head) return null;
+
+    let count = 1;
+    let current = this.head;
+
+    while (count < k && current.next) {
+      current = current.next;
+      count++;
+    }
+
+    if (count === k) return current;
+
+    else return undefined;
+  }
+
+  kth_node_recursive(k, current_node=this.head, count=1) {
+    if (count === k) return current_node;
+    else if (!current_node.next) return undefined;
+    else return this.kth_node_recursive(current_node.next, count++);
+  }
 }
 
 
