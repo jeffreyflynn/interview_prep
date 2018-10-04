@@ -55,6 +55,22 @@ class SinglyLinkedList {
     
     return this.head;
   }
+
+  // if you move one pointer twice as fast as another pointer,
+  // the fast pointer should eventually catch up to the slow pointer
+  checkForLoop() {
+    let slow_pointer = this.head;
+    let fast_pointer = this.head;
+
+    while (slow_pointer && fast_pointer && fast_pointer.next) {
+      slow_pointer = slow_pointer.next;
+      fast_pointer = fast_pointer.next.next;
+
+      if (slow_pointer.value === fast_pointer.value) return true;
+    }
+
+    return false;
+  }
 }
 
 
@@ -98,7 +114,7 @@ class DoublyLinkedList {
   removeAnyNode(value) {
     if (this.head.value === value) {
       this.head = this.head.next;
-      this.head.prev = null;
+      if (this.head) this.head.prev = null;
     }
 
     else {
