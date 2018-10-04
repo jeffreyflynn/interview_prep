@@ -34,6 +34,31 @@ POST-ORDER
 *** to traverse a tree without recursion, use a stack ***/
 
 
+class BSTnode {
+  constructor(value, right=null, left=null) {
+    this.value = value;
+    this.right = right;
+    this.left = left;
+  }
+}
+
+class BinarySearchTree {
+  constructor() {
+    this.root = null;
+    this.currentNode = this.root;
+  }
+
+  insert(value) {
+    const newnode = new BSTnode(value);
+
+    if (this.root === null) {
+      this.root = newnode;
+      return;
+    }
+  }
+}
+
+
 /* Min Heaps and Max Heaps
 
 Min
@@ -76,8 +101,9 @@ class Node {
 }
 
 class Graph {
-  constructor() {
+  constructor(numVertices) {
     this.graph = {};
+    this.numVertices = numVertices;
   }
 
   addVertex(value) {
@@ -95,18 +121,22 @@ class Graph {
   printGraph() {
     console.log(this.graph);
   }
+
+  // breadthFirstSearch(startingNode) {
+  //   const visited = [];
+  //   for (let i = 0; i < this.numVertices; i++) visited[i] = false;
+  // }
 }
 
 
 /*************************************************************/
 
-const g = new Graph(); 
+
+const g = new Graph(7); 
 const vertices = [ 'A', 'B', 'C', 'D', 'E', 'F' ]; 
   
 // adding vertices 
-for (let i = 0; i < vertices.length; i++) { 
-    g.addVertex(vertices[i]); 
-} 
+vertices.forEach(vert => g.addVertex(vert));
   
 // adding edges 
 g.addEdge('A', 'B'); 
@@ -118,12 +148,5 @@ g.addEdge('E', 'F');
 g.addEdge('E', 'C'); 
 g.addEdge('C', 'F'); 
   
-// prints all vertex and 
-// its adjacency list 
-// A -> B D E 
-// B -> A C 
-// C -> B E F 
-// D -> A E 
-// E -> A D F C 
-// F -> E C 
+// print graph
 g.printGraph(); 
