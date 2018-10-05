@@ -153,8 +153,8 @@ class Iterative_BinarySearchTree {
 
 // Let's populate out Binary Search Tree.
 
-// const bst = new Recursive_BinarySearchTree();
-const bst = new Iterative_BinarySearchTree();
+const bst = new Recursive_BinarySearchTree();
+// const bst = new Iterative_BinarySearchTree();
 
 bst.insert(111);
 bst.insert(4);
@@ -164,6 +164,6 @@ bst.insert(7);
 bst.insert(65);
 bst.insert(48);
 
-bst.search(5);
+// bst.search(5);
 
-// bst.inOrder();
+bst.preOrder();
