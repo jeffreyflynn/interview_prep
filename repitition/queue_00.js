@@ -3,6 +3,23 @@
 // push, pop, peek, isEmpty
 
 
+
+// basic approach
+/************************************************************/
+
+const queue = [];
+
+queue.push(7);
+queue.push(10);
+queue.push(13);
+
+queue.shift(); // 7
+
+
+
+// oop approach
+/************************************************************/
+
 class Queue {
   constructor() {
     this.queue = [];

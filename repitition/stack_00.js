@@ -4,6 +4,23 @@
 // push, pop, peek, isEmpty
 
 
+
+// basic approach
+/************************************************************/
+
+const stack = [];
+
+stack.push(7);
+stack.push(10);
+stack.push(13);
+
+stack.pop(); // 13
+
+
+
+// oop approach
+/************************************************************/
+
 class Stack {
   constructor() {
     this.stack = [];
