@@ -103,3 +103,9 @@ l.reverse_recurse();
 console.log("\n\n")
 l.print();
 console.log("\n\n")
+
+l.reverse_iterative();
+
+console.log("\n\n")
+l.print();
+console.log("\n\n")
