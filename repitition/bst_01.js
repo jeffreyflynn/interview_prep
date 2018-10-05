@@ -9,7 +9,7 @@ Rules:
 
 Traversal Methods:
   * pre-order  ~  current, left, right  ~  root node is always visited first
-  * in-order   ~  left, current, right
+  * in-order   ~  left, current, right  ~  sorts nodes by value
   * post-order ~  left, right, current  ~  root node is always visited last
 
 Types of Trees:
@@ -169,21 +169,27 @@ class Iterative_BinarySearchTree {
   inOrder() {
     if (!this.root) return;
 
-    const stack = [this.root];
-    const result = [];
+    const stack = [], result = [];
+    let current = this.root;
 
-    while (stack.length > 0) {
-      let node = stack.pop();
-      if (node.right) stack.push(node.right);
-      result.push(node.value);
-      if (node.left) stack.push(node.left);
+    while (true) {
+      if (current) {
+        stack.push(current);
+        current = current.left;
+      }
+      else if (stack.length > 0) {
+        current = stack.pop();
+        result.push(current.value);
+        current = current.right;
+      }
+      else break;
     }
 
     console.log(result);
     return result;
   }
 
-  
+
 }
 
 
@@ -202,4 +208,4 @@ bst.insert(48);
 
 // bst.search(5);
 
-bst.preOrder();
+bst.inOrder();
