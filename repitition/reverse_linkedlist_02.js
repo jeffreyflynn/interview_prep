@@ -1,3 +1,5 @@
+/* REVERSE A SINGLY LINKED LIST */
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -57,6 +59,9 @@ class LinkedList {
   }
 }
 
+
+
+/* Let's build a linked list. */
 
 const l = new LinkedList();
 
