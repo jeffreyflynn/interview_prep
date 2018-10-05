@@ -108,8 +108,10 @@ class LinkedList {
         * _curr = _next = { value: 1, next: 2 }
         * _prev = _curr = { value: 0, next: null }
     
+
     null  <--  || 0 ||   -~-   | 1 |  -->  | 2 |  -->  | 3 |  -->  null
     
+
     2nd loop:
       * _curr = { value: 1, next: 2 }
       * _prev = { value: 0, next: null }
@@ -123,7 +125,9 @@ class LinkedList {
         * _curr = _next = { value: 2, next: 3 }
         * _prev = _curr = { value: 1, next: 0 }
       
+
     null  <--  | 0 |  <--  || 1 ||   -~-   | 2 |  -->  | 3 |  -->  null
+
 
     3rd loop: 
       * _curr = { value: 2, next: 3 }
@@ -137,7 +141,9 @@ class LinkedList {
       * recurse with @param _curr = _next = { value: 3, next: null }
       * recurse with @param _prev = _curr = { value: 2, next: 1 }
     
+
     null  <--  | 0 |  <--  | 1 |  <--  || 2 ||   -~-   | 3 |  -->  null
+
 
     4th loop: 
       * _curr = { value: 3, next: null }
@@ -150,6 +156,7 @@ class LinkedList {
       * 
       * this.head = { value: 3, next: 2 }
     
+      
     null  <--  | 0 |  <--  | 1 |  <--  | 2 |  <--  || 3 ||
   
   */
