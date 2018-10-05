@@ -165,6 +165,25 @@ class Iterative_BinarySearchTree {
     console.log(result);
     return result;
   }
+
+  inOrder() {
+    if (!this.root) return;
+
+    const stack = [this.root];
+    const result = [];
+
+    while (stack.length > 0) {
+      let node = stack.pop();
+      if (node.right) stack.push(node.right);
+      result.push(node.value);
+      if (node.left) stack.push(node.left);
+    }
+
+    console.log(result);
+    return result;
+  }
+
+  
 }
 
 
