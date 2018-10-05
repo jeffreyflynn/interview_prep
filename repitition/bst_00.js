@@ -72,11 +72,27 @@ class Recursive_BinarySearchTree {
     if (value < current.value) this.search(value, current.left);
   }
 
-  inOrder(current=this.root) {
-    if (current) {
-      this.inOrder(current.left);
-      console.log(current.value);
-      this.inOrder(current.right);
+  preOrder(node=this.root) {
+    if (node) {
+      console.log(node.value);
+      this.preOrder(node.left);
+      this.preOrder(node.right);
+    }
+  }
+
+  inOrder(node=this.root) {
+    if (node) {
+      this.inOrder(node.left);
+      console.log(node.value);
+      this.inOrder(node.right);
+    }
+  }
+
+  postOrder(node=this.root) {
+    if (node) {
+      this.postOrder(node.left);
+      this.postOrder(node.right);
+      console.log(node.value);
     }
   }
 }
