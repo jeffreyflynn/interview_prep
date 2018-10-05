@@ -148,13 +148,30 @@ class Iterative_BinarySearchTree {
 
     return null;
   }
+
+  preOrder() {
+    if (!this.root) return;
+
+    const stack = [this.root];
+    const result = [];
+
+    while (stack.length > 0) {
+      let node = stack.pop();
+      result.push(node.value);
+      if (node.right) stack.push(node.right);
+      if (node.left) stack.push(node.left);
+    }
+
+    console.log(result);
+    return result;
+  }
 }
 
 
 // Let's populate out Binary Search Tree.
 
-const bst = new Recursive_BinarySearchTree();
-// const bst = new Iterative_BinarySearchTree();
+// const bst = new Recursive_BinarySearchTree();
+const bst = new Iterative_BinarySearchTree();
 
 bst.insert(111);
 bst.insert(4);
