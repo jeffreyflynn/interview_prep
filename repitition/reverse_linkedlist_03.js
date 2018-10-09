@@ -29,6 +29,18 @@ class LinkedList {
   reverse() {
     if (!this.head) return null;
 
-    
+    let prev = null,
+        curr = this.head,
+        next = null;
+
+    while (curr) {
+      next = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+    }
+
+    this.tail = this.head;
+    this.head = prev;
   }
 }
