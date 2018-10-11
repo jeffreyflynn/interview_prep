@@ -86,6 +86,16 @@ class Graph {
     }
   }
 
+  BFS(node=this.verticies[1]) {
+    if (node === null) return;
+    console.log(`\nvisited ~ ${node.value}\n`);
+    node.visited = true;
+    
+    for (let v in node.edges) {
+      if (!this.verticies[v].visited) this.BFS(this.verticies[v]);
+    }
+  }
+
   printGraph() {
     const res = JSON.stringify(this.verticies);
     console.log(`\n\n ${res} \n\n`);
@@ -108,8 +118,6 @@ g.add_edge(3, 1);
 
 g.printGraph();
 
-g.remove_edge(1, 2);
-g.printGraph();
+g.BFS();
 
-g.remove_vertex(3);
 g.printGraph();
