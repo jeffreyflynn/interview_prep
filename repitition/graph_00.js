@@ -65,7 +65,12 @@ class Graph {
     }
   }
 
-  remove_edge(vtx, edg) {
+  remove_edge(start, end) {
+    if (this.verticies[start] && this.verticies[end]) {
+      if (this.verticies[start].edges[end]) {
+        delete this.verticies[start].edges[end];
+      }
+    }
   }
 
   printGraph() {
