@@ -34,6 +34,24 @@ class Graph {
   }
 
   // O(1)
+  get_vertex(val) {
+    return this.verticies[val] ? this.verticies[val] : null;
+  }
+
+  // O(verticies)
+  remove_vertex(val) {
+    if (!this.verticies[val]) return null;
+
+    delete this.verticies[val];
+
+    for (let v in this.verticies) {
+      if (this.verticies[v].edges[val]) {
+        delete this.verticies[v].edges[val];
+      }
+    }
+  }
+
+  // O(1)
   add_edge(start, end) {
     let newnode;
 
@@ -54,17 +72,9 @@ class Graph {
     }
   }
 
-  // O(verticies)
-  remove_vertex(val) {
-    if (!this.verticies[val]) return null;
-
-    delete this.verticies[val];
-
-    for (let v in this.verticies) {
-      if (this.verticies[v].edges[val]) {
-        delete this.verticies[v].edges[val];
-      }
-    }
+  // O(1)
+  get_edge(start, end) {
+    return this.verticies[start].edges[end] || null;
   }
 
   // O(1)
