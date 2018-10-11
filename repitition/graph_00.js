@@ -24,6 +24,7 @@ class Graph {
     this.verticies = {};
   }
 
+  // O(1)
   add_vertex(val) {
     if (!this.verticies[val]) {
       this.verticies[val] = new Node(val);
@@ -32,7 +33,7 @@ class Graph {
     }
   }
 
-  // edge is similar to an arrow - leads from one node to another
+  // O(1)
   add_edge(start, end) {
     let newnode;
 
@@ -53,18 +54,20 @@ class Graph {
     }
   }
 
+  // O(verticies)
   remove_vertex(val) {
     if (!this.verticies[val]) return null;
 
     delete this.verticies[val];
 
     for (let v in this.verticies) {
-      if (v.edges[val]) {
+      if (this.verticies[v].edges[val]) {
         delete this.verticies[v].edges[val];
       }
     }
   }
 
+  // O(1)
   remove_edge(start, end) {
     if (this.verticies[start] && this.verticies[end]) {
       if (this.verticies[start].edges[end]) {
@@ -81,6 +84,7 @@ class Graph {
 
 
 // **************************************************
+
 
 const g = new Graph();
 
