@@ -14,7 +14,7 @@ A graph is a collection of nodes with edges between them.
 class Node {
   constructor(value) {
     this.value = value;
-    this.edges = [];
+    this.edges = {};
   }
 }
 
@@ -33,26 +33,30 @@ class Graph {
   }
 
   // edge is similar to an arrow - leads from one node to another
-  add_directed_edge(from_value, to_value) {
+  add_edge(start, end) {
     let newnode;
 
-    if (!this.verticies[from_value]) {
-      newnode = new Node(from_value);
-      this.verticies[from_value] = newnode;
+    if (!this.verticies[start]) {
+      newnode = new Node(start);
+      this.verticies[start] = newnode;
     }
 
-    if (!this.verticies[to_value]) {
-      newnode = new Node(to_value);
-      this.verticies[to_value] = newnode;
+    if (!this.verticies[end]) {
+      newnode = new Node(end);
+      this.verticies[end] = newnode;
     }
 
-    this.verticies[from_value].edges.push(to_value);
+    if (this.verticies[start].edges[end]) {
+      this.verticies[start].edges[end].weight += 1;
+    } else {
+      this.verticies[start].edges[end] = { weight: 1 };
+    }
   }
 
   remove_vertex(val) {
-    if (!this.verticies[val]) return null;
-    delete this.verticies[val];
-    return;
+  }
+
+  remove_edge(vtx, edg) {
   }
 
   printGraph() {
@@ -70,8 +74,14 @@ g.add_vertex(1);
 g.add_vertex(2);
 g.add_vertex(3);
 
-g.add_directed_edge(1, 2);
-g.add_directed_edge(2, 3);
-g.add_directed_edge(3, 1);
+g.add_edge(1, 2);
+g.add_edge(2, 3);
+g.add_edge(3, 1);
 
+g.printGraph();
+
+g.remove_edge(1, 2);
+g.printGraph();
+
+g.remove_vertex(3);
 g.printGraph();
