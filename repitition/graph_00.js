@@ -54,6 +54,15 @@ class Graph {
   }
 
   remove_vertex(val) {
+    if (!this.verticies[val]) return null;
+
+    delete this.verticies[val];
+
+    for (let v in this.verticies) {
+      if (v.edges[val]) {
+        delete this.verticies[v].edges[val];
+      }
+    }
   }
 
   remove_edge(vtx, edg) {
