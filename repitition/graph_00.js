@@ -48,4 +48,11 @@ class Graph {
     this.verticies[x_value].edges.push(y_value);
     this.verticies[y_value].edges.push(x_value);
   }
+
+  printGraph() {
+    const res = JSON.stringify(this.verticies);
+    console.log(res);
+  }
 }
+
+
