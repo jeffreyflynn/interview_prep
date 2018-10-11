@@ -14,15 +14,23 @@ A graph is a collection of nodes with edges between them.
 class Node {
   constructor(value) {
     this.value = value;
-    this.connections = null;
+    this.edges = {};
   }
 }
 
 
-// class Graph {
-//   constructor() {
-//     this.root = null;
-//   }
+class Graph {
+  constructor() {
+    this.verticies = {};
+  }
 
-//   insert(value, )
-// }
+  addVertex(val) {
+    if (!this.verticies[val]) {
+      this.verticies[val] = new Node(val);
+    }
+  }
+
+  addEdge(x, y) {
+    
+  }
+}
