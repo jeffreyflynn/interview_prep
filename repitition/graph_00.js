@@ -22,13 +22,23 @@ class Node {
 class Graph {
   constructor() {
     this.verticies = {};
+    this.root = null;
   }
 
   // O(1)
   add_vertex(val) {
-    if (!this.verticies[val]) {
-      this.verticies[val] = new Node(val);
-    } else {
+    const newnode = new Node(val);
+
+    if (!this.root) {
+      this.root = newnode;
+      this.verticies[val] = newnode;
+    }
+
+    else if (!this.verticies[val]) {
+      this.verticies[val] = newnode;
+    } 
+    
+    else {
       return null;
     }
   }
@@ -86,19 +96,83 @@ class Graph {
     }
   }
 
-  BFS(node=this.verticies[1]) {
+  reset_visited() {
+    for (let v in this.verticies) {
+      this.verticies[v].visited = false;
+    }
+  }
+
+  BFS_iterative() {
+    const queue = [this.root];
+
+    this.verticies[this.root.value].visited = true;
+
+    while (queue.length > 0) {
+      const node = queue.shift();
+      console.log(`\nvisited ~ ${node.value}\n`);
+
+      for (let v in node.edges) {
+        if (!this.verticies[v].visited) {
+          this.verticies[v].visited = true;
+          queue.push(this.verticies[v]);
+        }
+      }
+    }
+    
+    this.reset_visited();
+  }
+
+  DFS(node=this.root) {
     if (node === null) return;
+
     console.log(`\nvisited ~ ${node.value}\n`);
     node.visited = true;
     
     for (let v in node.edges) {
-      if (!this.verticies[v].visited) this.BFS(this.verticies[v]);
+      if (!this.verticies[v].visited) this.DFS(this.verticies[v]);
     }
   }
 
+  // DFS_iterative() { // 0 1 3 2 4 5
+  //   const stack = [], visited = [];
+
+  //   stack.push(this.root);
+
+  //   while (stack.length) {
+  //     const node = stack.shift();
+
+  //     visited[node.value] = true;
+
+  //     if (Object.keys(node.edges)[0])
+
+  //     for (let v in node.edges) {
+  //       if (!visited[v]) {
+  //         stack.push(this.verticies[v]);
+  //         // console.log(stack)
+  //       }
+  //     }
+  //     console.log(`\nvisited ~ ${node.value}`);
+  //   }
+
+  //   this.reset_visited();
+  // }
+
+  // BFS(node=this.verticies[0]) {
+  //   const stack = [];
+  //   let n;
+
+  //   while (stack.length > 0) {
+  //     n = stack.pop();
+  //     console.log(`\nvisited ~ ${n.value}\n`);
+
+
+  //   }
+  // }
+
   printGraph() {
-    const res = JSON.stringify(this.verticies);
-    console.log(`\n\n ${res} \n\n`);
+    for (let v in this.verticies) {
+      console.log(`${v}  ~  ${Object.keys(this.verticies[v].edges)}`);
+    }
   }
 }
 
@@ -108,16 +182,30 @@ class Graph {
 
 const g = new Graph();
 
+g.add_vertex(0);
 g.add_vertex(1);
 g.add_vertex(2);
 g.add_vertex(3);
+g.add_vertex(4);
+g.add_vertex(5);
 
-g.add_edge(1, 2);
-g.add_edge(2, 3);
-g.add_edge(3, 1);
+g.add_edge(0, 1);
+g.add_edge(0, 4);
+g.add_edge(0, 5);
+g.add_edge(1, 3);
+g.add_edge(1, 4);
+g.add_edge(2, 1);
+g.add_edge(3, 2);
+g.add_edge(3, 4);
+
+// g.printGraph();
+
+// g.DFS(); // 0 1 3 2 4 5
+
+// g.printGraph();
+
+g.BFS_iterative(); // 0 1 4 5 3 2
 
 g.printGraph();
 
-g.BFS();
-
-g.printGraph();
+g.DFS_iterative(); // 0 1 3 2 4 5
