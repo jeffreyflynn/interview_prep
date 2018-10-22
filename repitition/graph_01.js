@@ -4,11 +4,11 @@ class Graph {
     this.edges = {};
   }
 
-  addNode(val) {
+  addVertex(val) {
     this.nodes.push(val);
   }
 
-  addVertex(v1, v2) {
+  addEdge(v1, v2) {
     if (this.edges[v1]) {
       this.edges[v1].push(v2);
     } else {
@@ -73,21 +73,21 @@ class Graph {
 
 const g = new Graph();
 
-g.addNode(0)
-g.addNode(1)
-g.addNode(2)
-g.addNode(3)
-g.addNode(4)
-g.addNode(5)
+g.addVertex(0)
+g.addVertex(1)
+g.addVertex(2)
+g.addVertex(3)
+g.addVertex(4)
+g.addVertex(5)
 
-g.addVertex(0, 1)
-g.addVertex(0, 4)
-g.addVertex(0, 5)
-g.addVertex(1, 3)
-g.addVertex(1, 4)
-g.addVertex(2, 1)
-g.addVertex(3, 2)
-g.addVertex(3, 4)
+g.addEdge(0, 1)
+g.addEdge(0, 4)
+g.addEdge(0, 5)
+g.addEdge(1, 3)
+g.addEdge(1, 4)
+g.addEdge(2, 1)
+g.addEdge(3, 2)
+g.addEdge(3, 4)
 
 g.printGraph()
 
