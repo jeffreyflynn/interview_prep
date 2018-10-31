@@ -40,7 +40,21 @@ class Stack {
 }
 
 function areParensEqual(str) {
+  const stack = new Stack();
+
   for (let i = 0; i < str.length; i++) {
-    
+    if (str[i] in ["(", "{", "["]) {
+      stack.push(str[i]);
+    } 
+    else if (str[i] in [")", "}", "]"]) {
+      const topOfStack = stack.peek();
+      const combined = str[i] + topOfStack;
+
+      if (combined in ["()", "{}", "[]"]) {
+        stack.pop();
+      }
+    }
   }
+
+  return stack.isEmpty();
 }
