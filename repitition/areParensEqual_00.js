@@ -29,5 +29,3 @@ function areParensEqual(str) {
 
   return stack.length === 0;
 }
-
-console.log(areParensEqual("{}{()"));
