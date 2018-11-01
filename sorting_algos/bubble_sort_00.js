@@ -1,4 +1,6 @@
-// BUBBLE SORT
+// BUBBLE SORT 
+// O(n^2) time complexity
+// O(1) space complexity
 
 /* Sudo Code *//*
 
@@ -9,7 +11,15 @@
 
 */
 
-function bubbleSort(arr) {
+// Swap helper function
+function swap(array, i, j) {
+  var temp = array[i];
+  array[i] = array[j];
+  array[j] = temp;
+}
+
+
+function basicBubbleSort(arr) {
 
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j <= arr.length - i - 1; j++) {
@@ -22,6 +32,26 @@ function bubbleSort(arr) {
 
     }
   }
+
+  return arr;
+}
+
+
+function bubbleSort(arr) {
+  let swapped;
+
+  do {
+    // console.log(arr)
+    swapped = false;
+    for (let i = 0; i < arr.length; i++) {
+      console.log(arr)
+      if (arr[i] > arr[i+1]) {
+        swap(arr, i, i+1);
+        swapped = true;
+      }
+    }
+    console.log(swapped);
+  } while (swapped);
 
   return arr;
 }
