@@ -19,6 +19,7 @@ function swap(array, i, j) {
 }
 
 
+// basic bubble sort 
 function basicBubbleSort(arr) {
 
   for (let i = 0; i < arr.length; i++) {
@@ -37,20 +38,18 @@ function basicBubbleSort(arr) {
 }
 
 
+// Efficient bubble sort
 function bubbleSort(arr) {
   let swapped;
 
   do {
-    // console.log(arr)
     swapped = false;
     for (let i = 0; i < arr.length; i++) {
-      console.log(arr)
       if (arr[i] > arr[i+1]) {
         swap(arr, i, i+1);
         swapped = true;
       }
     }
-    console.log(swapped);
   } while (swapped);
 
   return arr;
