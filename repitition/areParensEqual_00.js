@@ -8,53 +8,26 @@
     * if the stack is empty, return true!
 */
 
-class Stack {
-  constructor() {
-    this.stack = [];
-    this.count = 0;
-  }
-
-  push(val) {
-    if (!this.isEmpty()) {
-      this.stack.push(val);
-      this.count++;
-    }
-  }
-
-  pop() {
-    if (!this.isEmpty()) {
-      this.count--;
-      return this.stack.pop();
-    }
-  }
-
-  peek() {
-    if (!this.isEmpty()) {
-      return this.stack[this.count];
-    }
-  }
-
-  isEmpty() {
-    return this.stack[0] !== undefined;
-  }
-}
-
 function areParensEqual(str) {
-  const stack = new Stack();
+  const stack = [];
+  const map = {
+    open: ["(", "{", "["],
+    close: [")", "}", "]"],
+    full: ["()", "{}", "[]"]
+  };
 
   for (let i = 0; i < str.length; i++) {
-    if (str[i] in ["(", "{", "["]) {
+    if (map.open.includes(str[i])) {
       stack.push(str[i]);
     } 
-    else if (str[i] in [")", "}", "]"]) {
-      const topOfStack = stack.peek();
-      const combined = str[i] + topOfStack;
-
-      if (combined in ["()", "{}", "[]"]) {
-        stack.pop();
-      }
+    else if (map.close.includes(str[i])) {
+      const topOfStack = stack[stack.length-1];
+      const combined = topOfStack + str[i];
+      if (map.full.includes(combined)) stack.pop();
     }
   }
 
-  return stack.isEmpty();
+  return stack.length === 0;
 }
+
+console.log(areParensEqual("{}{()"));
